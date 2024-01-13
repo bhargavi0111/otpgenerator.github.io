@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="otpgenerator.css">
+</head>
+<body>
+    <div class="otp">
+    <h1>OTP generator</h1>
+    <span >YOUR OTP</span>
+    <span id="generator" ></span><br><br>
+    <input  type="number" id="bha" >
+    <button type="button" onclick="otp(a)">Submit</button>
+    <h2 id="out"></h2>
+    </div>
+    <script>
+    var a
+    
+    function rand(){
+            a=Math.floor(1000+Math.random()*9000);
+            document.querySelector("#generator").innerHTML=a
+    }
+    function otp(a){
+        
+       let b=document.querySelector("#bha").value
+        if(b==""){
+            c="please enter otp"
+        }
+        else if(b!=a){
+           c="incorrect otp"
+        }
+        else {
+            c="otp regestered"
+            clearInterval(Timer)
+        }
+        document.querySelector("#out").innerHTML=c;
+    }
+    Timer=setInterval(rand,9000)
+    
+    </script>
+</body>
+</html>
